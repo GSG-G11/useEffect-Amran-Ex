@@ -24,15 +24,21 @@ export default function UserProfile() {
             )
         })
         setData(result)
+
+        //other approach
+        // setData((prev) => prev.filter((ele) => {
+        //         return (
+        //             ele.id !==id 
+        //         );
+        //          }));
     }
 
     const handleUpdate = (id)=>{
         const newName = prompt('Enter new name: ');
         if (newName.trim() === '') return
 
-        setData((prev) => prev.map((ele) =>{
-            ele.id === id ? {...ele, name: newName} : ele
-        }))
+        setData((prev) => prev.map((ele) =>
+            ele.id === id ? {...ele, name: newName} : ele))
         
     }
 
